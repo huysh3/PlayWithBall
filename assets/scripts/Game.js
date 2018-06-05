@@ -32,6 +32,7 @@ cc.Class({
         type: cc.Node
       },
 
+
       // player节点，用于获取主角弹跳高度
       player: {
         default: null,
@@ -48,7 +49,6 @@ cc.Class({
 
     onLoad () {
       // 获取地平面的y轴坐标
-      console.log(this.ground)
       this.groundY = this.ground.y + this.ground.height / 2
 
       this.score = 0

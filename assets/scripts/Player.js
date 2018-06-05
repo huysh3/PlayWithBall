@@ -26,21 +26,11 @@ cc.Class({
         url: cc.AudioClip
       },
 
-        // foo: {
-        //     // ATTRIBUTES:
-        //     default: null,        // The default value will be used only when the component attaching
-        //                           // to a node for the first time
-        //     type: cc.SpriteFrame, // optional, default is typeof default
-        //     serializable: true,   // optional, default is true
-        // },
-        // bar: {
-        //     get () {
-        //         return this._bar;
-        //     },
-        //     set (value) {
-        //         this._bar = value;
-        //     }
-        // },
+      canvas: {
+        default: null,
+        type: cc.Node
+      },
+
     },
 
     setJumpAction () {
@@ -111,7 +101,7 @@ cc.Class({
 
     update (dt) {
       // 根据加速度更新
-      if (this.accLeft) {
+      if (this.accLeft && -this.node.x <= this.canvas.width / 2 ) {
         this.xSpeed -= this.accel * dt
       } else if (this.accRight) {
         this.xSpeed += this.accel * dt
@@ -121,6 +111,16 @@ cc.Class({
         this.xSpeed = this.maxMoveSpeed * this.xSpeed / Math.abs(this.xSpeed)
       }
 
-      this.node.x += this.xSpeed * dt
+      if (Math.abs(this.node.x) <= this.canvas.width / 2) {
+        this.node.x += this.xSpeed * dt
+      } else if (this.node.x > 0) {
+        this.node.x = this.canvas.width / 2
+      } else if (this.node.x < 0) {
+        this.node.x = -this.canvas.width / 2
+      // } else {
+      //   this.node.x = this.node.x ? this.canvas.width / 2 : -this.canvas.width / 2
+      }
+
+
     },
 });

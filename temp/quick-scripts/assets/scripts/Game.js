@@ -54,7 +54,6 @@ cc.Class({
 
   onLoad: function onLoad() {
     // 获取地平面的y轴坐标
-    console.log(this.ground);
     this.groundY = this.ground.y + this.ground.height / 2;
 
     this.score = 0;
