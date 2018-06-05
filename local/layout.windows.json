@@ -1,0 +1,97 @@
+{
+  "version": "1.1.1",
+  "windows": {
+    "main": {
+      "main": true,
+      "url": "app://editor/index.html",
+      "windowType": "dockable",
+      "x": 0,
+      "y": 0,
+      "width": 1920,
+      "height": 1080,
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "active": 0,
+                "children": [
+                  "assets"
+                ],
+                "height": 324,
+                "type": "panel",
+                "width": 621
+              },
+              {
+                "active": 0,
+                "children": [
+                  "hierarchy"
+                ],
+                "height": 248,
+                "type": "panel",
+                "width": 621
+              },
+              {
+                "active": 0,
+                "children": [
+                  "inspector"
+                ],
+                "height": 411,
+                "type": "panel",
+                "width": 621
+              }
+            ],
+            "height": 989,
+            "type": "dock-v",
+            "width": 621
+          },
+          {
+            "children": [
+              {
+                "active": 0,
+                "children": [
+                  "scene"
+                ],
+                "height": 602,
+                "type": "panel",
+                "width": 1290
+              },
+              {
+                "active": 1,
+                "children": [
+                  "node-library",
+                  "console",
+                  "timeline"
+                ],
+                "height": 384,
+                "type": "panel",
+                "width": 1290
+              }
+            ],
+            "height": 989,
+            "type": "dock-v",
+            "width": 1290
+          }
+        ],
+        "type": "dock-h"
+      },
+      "panels": [
+        "inspector",
+        "node-library",
+        "console",
+        "assets",
+        "hierarchy",
+        "scene",
+        "timeline"
+      ]
+    }
+  },
+  "panels": {
+    "preferences": {
+      "x": 432,
+      "y": 230,
+      "width": 844,
+      "height": 633
+    }
+  }
+}

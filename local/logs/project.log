@@ -1,0 +1,57 @@
+2018-06-05T02:31:13.367Z - normal: Load ~/.CocosCreator/settings.json
+2018-06-05T02:31:13.371Z - normal: checking language setting...
+2018-06-05T02:31:13.371Z - normal: Language: zh
+2018-06-05T02:31:14.110Z - success: protocol editor-framework registered
+2018-06-05T02:31:14.110Z - success: protocol app registered
+2018-06-05T02:31:14.110Z - success: protocol theme registered
+2018-06-05T02:31:14.110Z - success: protocol packages registered
+2018-06-05T02:31:14.111Z - success: protocol unpack registerred
+2018-06-05T02:31:14.111Z - success: protocol disable-commonjs registerred
+2018-06-05T02:31:14.628Z - normal: connected!
+2018-06-05T02:31:14.629Z - normal: Check project /Users/huyusheng/Projects/roadToGamer/start_project
+2018-06-05T02:31:14.631Z - normal: Initializing Cocos2d
+2018-06-05T02:31:14.824Z - normal: Initializing Asset Database
+2018-06-05T02:31:14.853Z - success: protocol uuid registerred
+2018-06-05T02:31:14.853Z - success: protocol db registerred
+2018-06-05T02:31:14.853Z - success: protocol thumbnail registerred
+2018-06-05T02:31:14.854Z - normal: Loading editor/builtin packages
+2018-06-05T02:31:14.871Z - success: anysdk loaded
+2018-06-05T02:31:14.973Z - success: assets loaded
+2018-06-05T02:31:14.978Z - success: builder loaded
+2018-06-05T02:31:14.981Z - success: cocos-analytics loaded
+2018-06-05T02:31:14.984Z - success: console loaded
+2018-06-05T02:31:15.014Z - success: fb-instant-games loaded
+2018-06-05T02:31:15.017Z - success: hierarchy loaded
+2018-06-05T02:31:15.022Z - success: inspector loaded
+2018-06-05T02:31:15.024Z - success: keystore loaded
+2018-06-05T02:31:15.032Z - success: node-library loaded
+2018-06-05T02:31:15.034Z - success: package-asset loaded
+2018-06-05T02:31:15.035Z - success: preferences loaded
+2018-06-05T02:31:15.038Z - success: project-exporter loaded
+2018-06-05T02:31:15.052Z - success: project-importer loaded
+2018-06-05T02:31:15.055Z - success: project-settings loaded
+2018-06-05T02:31:15.058Z - success: ui-kit loaded
+2018-06-05T02:31:15.063Z - success: ui-grid loaded
+2018-06-05T02:31:15.067Z - success: scene loaded
+2018-06-05T02:31:15.068Z - success: sprite-editor loaded
+2018-06-05T02:31:15.072Z - success: store loaded
+2018-06-05T02:31:15.079Z - success: timeline loaded
+2018-06-05T02:31:15.079Z - normal: Loading builtin packages
+2018-06-05T02:31:15.083Z - success: asset-db-debugger loaded
+2018-06-05T02:31:15.084Z - success: color-picker loaded
+2018-06-05T02:31:15.087Z - success: package-manager loaded
+2018-06-05T02:31:15.092Z - success: sdkbox loaded
+2018-06-05T02:31:15.098Z - success: tester loaded
+2018-06-05T02:31:15.102Z - success: ui-kit-preview-extra loaded
+2018-06-05T02:31:15.105Z - success: ui-kit-preview loaded
+2018-06-05T02:31:15.107Z - success: ui-tree loaded
+2018-06-05T02:31:15.969Z - normal: Initializing project /Users/huyusheng/Projects/roadToGamer/start_project
+2018-06-05T02:31:15.971Z - normal: Loading packages
+2018-06-05T02:31:15.974Z - normal: Watching packages
+2018-06-05T02:31:15.983Z - normal: Run Application
+2018-06-05T02:31:16.401Z - success: preview server running at http://localhost:7456
+2018-06-05T02:31:20.348Z - normal: 1.9.1
+2018-06-05T03:19:02.826Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:48272
+2018-06-05T03:19:02.829Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:48275
+2018-06-05T03:19:02.833Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:48277
+2018-06-05T03:19:02.834Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:48279
