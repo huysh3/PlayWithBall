@@ -25,7 +25,12 @@ cc.Class({
     // 最大移速
     maxMoveSpeed: 0,
     // 加速度
-    accel: 0
+    accel: 0,
+
+    jumpAudio: {
+      default: null,
+      url: cc.AudioClip
+    }
 
     // foo: {
     //     // ATTRIBUTES:
@@ -46,9 +51,15 @@ cc.Class({
 
   setJumpAction: function setJumpAction() {
     var jumpUp = cc.moveBy(this.jumpDuration, cc.p(0, this.jumpHeight)).easing(cc.easeCubicActionOut());
+
     var jumpDown = cc.moveBy(this.jumpDuration, cc.p(0, -this.jumpHeight)).easing(cc.easeCubicActionIn());
 
-    return cc.repeatForever(cc.sequence(jumpUp, jumpDown));
+    var callback = cc.callFunc(this.playJumpSound, this);
+
+    return cc.repeatForever(cc.sequence(jumpUp, jumpDown, callback));
+  },
+  playJumpSound: function playJumpSound() {
+    cc.audioEngine.playEffect(this.jumpAudio, false);
   },
   setInputControl: function setInputControl() {
     var _this = this;

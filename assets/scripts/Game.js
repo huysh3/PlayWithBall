@@ -12,6 +12,11 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
+      scoreDisplay: {
+        default: null,
+        type: cc.Label
+      },
+
       starPrefab: {
         default: null,
         type: cc.Prefab
@@ -31,31 +36,80 @@ cc.Class({
       player: {
         default: null,
         type: cc.Node
-      }
-        // foo: {
-        //     // ATTRIBUTES:
-        //     default: null,        // The default value will be used only when the component attaching
-        //                           // to a node for the first time
-        //     type: cc.SpriteFrame, // optional, default is typeof default
-        //     serializable: true,   // optional, default is true
-        // },
-        // bar: {
-        //     get () {
-        //         return this._bar;
-        //     },
-        //     set (value) {
-        //         this._bar = value;
-        //     }
-        // },
+      },
+
+      pickAudio: {
+        default: null,
+        url: cc.AudioClip
+      },
     },
 
     // LIFE-CYCLE CALLBACKS:
 
-    // onLoad () {},
+    onLoad () {
+      // 获取地平面的y轴坐标
+      console.log(this.ground)
+      this.groundY = this.ground.y + this.ground.height / 2
+
+      this.score = 0
+
+      // 计时器
+      this.timer = 0
+      this.starDuration = 0
+
+      // 生成星星
+      this.spawnNewStar()
+    },
+
+    spawnNewStar () {
+      // 使用给定的模板在场景中生成新Node
+      let newStar = cc.instantiate(this.starPrefab)
+
+      this.node.addChild(newStar)
+
+      newStar.setPosition(this.getNewStarPosition())
+      this.starDuration = this.minStarDuration + cc.random0To1() * (this.maxStarDuration - this.minStarDuration)
+      this.timer = 0
+
+      newStar.getComponent('Star').game = this
+    },
+
+    getNewStarPosition () {
+      let randX = 0
+
+      let randY = this.groundY + cc.random0To1() * this.player.getComponent('Player').jumpHeight
+      // let randY = this.groundY
+
+      let maxX = this.node.width / 2
+      randX = cc.randomMinus1To1() * maxX
+
+      return cc.p(randX, randY)
+    },
+
+    gainScore () {
+      this.score += 1
+      this.scoreDisplay.string = `Score: ${this.score.toString()}`
+      this.playPickedSound()
+    },
+
+    playPickedSound () {
+      cc.audioEngine.playEffect(this.pickAudio, false)
+    },
 
     start () {
 
     },
 
-    // update (dt) {},
+    gameOver () {
+      this.player.stopAllActions()
+      cc.director.loadScene('game')
+    },
+
+    update (dt) {
+      if (this.timer > this.starDuration) {
+        this.gameOver()
+        return false
+      }
+      this.timer += dt
+    },
 });

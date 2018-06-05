@@ -21,6 +21,11 @@ cc.Class({
       // 加速度
       accel: 0,
 
+      jumpAudio: {
+        default: null,
+        url: cc.AudioClip
+      },
+
         // foo: {
         //     // ATTRIBUTES:
         //     default: null,        // The default value will be used only when the component attaching
@@ -42,11 +47,18 @@ cc.Class({
       let jumpUp = cc
         .moveBy(this.jumpDuration, cc.p(0, this.jumpHeight))
         .easing(cc.easeCubicActionOut())
+
       let jumpDown = cc
         .moveBy(this.jumpDuration, cc.p(0, -this.jumpHeight))
         .easing(cc.easeCubicActionIn())
 
-      return cc.repeatForever(cc.sequence(jumpUp, jumpDown))
+      let callback = cc.callFunc(this.playJumpSound, this)
+
+      return cc.repeatForever(cc.sequence(jumpUp, jumpDown, callback))
+    },
+
+    playJumpSound () {
+      cc.audioEngine.playEffect(this.jumpAudio, false)
     },
 
     setInputControl () {

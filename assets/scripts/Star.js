@@ -19,7 +19,9 @@ cc.Class({
       game: {
         default: null,
         serializable: false,
-      }
+      },
+
+
         // foo: {
         //     // ATTRIBUTES:
         //     default: null,        // The default value will be used only when the component attaching
@@ -41,9 +43,36 @@ cc.Class({
 
     // onLoad () {},
 
+    getPlayerDistance () {
+      let playerPos = this.game.player.getPosition()
+
+      let dist = cc.pDistance(this.node.position, playerPos)
+
+      return dist
+    },
+
+    onPicked () {
+      // 销毁星星，得分，生成新星星
+      this.node.destroy()
+      this.game.spawnNewStar()
+      this.game.gainScore()
+    },
+
+
+
     start () {
 
     },
 
-    // update (dt) {},
+    update (dt) {
+      let opacityRatio = 1 - this.game.timer / this.game.starDuration
+      let minOpacity = 50
+      this.node.opacity = minOpacity + Math.floor(opacityRatio * (255 - minOpacity))
+
+      if (this.getPlayerDistance() < this.pickRadius) {
+        // 调用收集
+        this.onPicked()
+        return true
+      }
+    },
 });
